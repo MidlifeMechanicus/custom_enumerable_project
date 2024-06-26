@@ -2,14 +2,21 @@
 
 a = [1, 2, 3]
 
-class Array
-  def my_each
-    for no in self
-      yield(n)
-    end
-  end
-end
+puts a
 
-a.my_each do |item|
-  puts item
+# class Array
+  # def my_each
+    # for n in self
+      # yield(n)
+    # end
+  # end
+# end
+# 
+# a.my_each do |item|
+  # puts item
+# end
+
+b = a.select do |num|
+  num > 2
 end
+puts b

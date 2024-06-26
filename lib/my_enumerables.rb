@@ -4,6 +4,15 @@ module Enumerable
   end
 
   def my_select
+    new_array = []
+    # for n in self
+      # new_array << n if yield(n)
+    # end
+    # The above works, but I suspect that the intention is to build on my_each rather than duplicate the code each time. Therefore:
+    my_each do |n|
+      new_array << n if yield(n)
+    end
+    new_array
   end
 
   def my_all?
