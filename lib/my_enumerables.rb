@@ -1,6 +1,11 @@
 module Enumerable
   # Your code goes here
   def my_each_with_index
+    i = 0
+    my_each do |n|
+      yield(n, i)
+      i += 1
+    end
   end
 
   def my_select
@@ -16,6 +21,11 @@ module Enumerable
   end
 
   def my_all?
+    all = true
+    my_each do |n|
+      all = false unless yield(n)
+    end
+    all
   end
 
   def my_any?
@@ -29,7 +39,7 @@ module Enumerable
 
   def my_map
     new_array = []
-    for n in self
+    my_each do |n|
       new_array << yield(n)
     end
     new_array
