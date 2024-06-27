@@ -29,6 +29,11 @@ module Enumerable
   end
 
   def my_any?
+    any = false
+    my_each do |n|
+      any = true if yield(n)
+    end
+    any
   end
 
   def my_none?
