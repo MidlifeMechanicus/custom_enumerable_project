@@ -37,6 +37,11 @@ module Enumerable
   end
 
   def my_none?
+    none = true
+    my_each do |n|
+      none = false if yield(n)
+    end
+    none
   end
 
   def my_count
