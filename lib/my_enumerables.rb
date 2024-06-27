@@ -45,6 +45,15 @@ module Enumerable
   end
 
   def my_count
+    count = 0
+    my_each do |n|
+      if block_given?
+        count +=1 if yield(n)
+      else
+        count +=1
+      end
+    end
+    count
   end
 
   def my_map
