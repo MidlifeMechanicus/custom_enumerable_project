@@ -64,7 +64,12 @@ module Enumerable
     new_array
   end
 
-  def my_inject
+  def my_inject(initial = nil)
+    accumulator = initial.nil? ? first : initial
+    my_each do |n|
+      accumulator = yield(accumulator, n)
+    end
+    accumulator
   end
 end
 
